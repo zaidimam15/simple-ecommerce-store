@@ -1,126 +1,140 @@
-## 🌐 Live Demo & Project Links
+# 🛍️ Atelier Edition
+### ✨ Modern Full-Stack E-Commerce Store
 
-| Resource | Link |
-|---|---|
-| 🌍 Live Frontend | [Visit Website](https://simple-ecommerce-store-red.vercel.app/) |
-| ⚙️ Backend API | [View Backend](https://simple-ecommerce-store-hb6q.onrender.com) |
-| 💚 API Health Check | [Check API](https://simple-ecommerce-store-hb6q.onrender.com/api/health) |
-| 💻 GitHub Repository | [Explore Source Code](https://github.com/zaidimam15/simple-ecommerce-store) |
+## 🌐 Live Links
 
-## ✨ About the Project
+| 🔗 Resource | 🚀 Visit |
 
-Atelier Edition is a full-stack e-commerce web application built using the MERN stack. It combines a modern storefront with product discovery, shopping cart management, user authentication, wishlist functionality, and Cash on Delivery checkout.
+| 🌍 **Live Frontend** | [Open Atelier Edition](https://simple-ecommerce-store-red.vercel.app/) |
 
-The application includes a curated catalogue of 122 products across 10 lifestyle categories, along with inventory management and automated tests.
+| ⚙️ **Backend API** | [Open Backend](https://simple-ecommerce-store-hb6q.onrender.com) |
 
-## 🚀 Key Features
+| 💚 **API Health Check** | [Check API Status](https://simple-ecommerce-store-hb6q.onrender.com/api/health) |
+
+| 💻 **GitHub Repository** | [Explore Source Code](https://github.com/zaidimam15/simple-ecommerce-store) |
+
+## 📖 About the Project
+
+**Atelier Edition** is a modern, full-stack e-commerce web application developed using React, Node.js, Express, and MongoDB.
+
+The project combines an elegant storefront with product discovery, user authentication, shopping cart management, wishlist functionality, inventory control, and a convenient Cash on Delivery checkout experience.
+
+Built with a focus on responsive design, usability, backend validation, and secure order processing.
+
+## ✨ Features
 
 ### 🛍️ Product Catalogue
-- 122 curated products across 10 lifestyle categories.
-- Product images, descriptions, prices, ratings, and stock information.
-- Instant search with input sanitization.
-- Category filtering and dynamic pagination.
-- Sorting by price, rating, and product name.
+- 📦 122 curated products across 10 lifestyle categories.
+- 🏷️ Product prices, descriptions, ratings, reviews, and stock details.
+- 🔎 Search with input sanitization.
+- 🎯 Category filtering and pagination.
+- ↕️ Sorting by price, rating, and product name.
 
-### 🎨 Modern UI/UX
-- Premium editorial-inspired design.
-- Responsive layout for desktop, tablet, and mobile.
-- Quick View modal for product previews.
-- Slide-out wishlist drawer.
-- Persistent cart and wishlist using local storage.
-- Loading skeletons and toast notifications.
+### 🎨 Premium UI/UX
+- 💎 Modern editorial-inspired storefront.
+- 📱 Responsive desktop, tablet, and mobile layouts.
+- 👀 Quick View product modal.
+- ❤️ Slide-out wishlist drawer.
+- 🛒 Shopping cart with persistent storage.
+- 🔔 Toast notifications and loading skeletons.
 
-### 🔐 Authentication
-- User registration and login.
-- JWT-based authentication.
-- Password hashing with bcrypt.
-- Protected checkout and order routes.
-- Authenticated order history.
+### 🔐 Authentication & Accounts
+- 👤 User registration and login.
+- 🔑 JWT-based authentication.
+- 🔒 Password hashing with bcrypt.
+- 🛡️ Protected checkout and order routes.
+- 📋 Authenticated order history.
 
 ### 🛒 Shopping & Checkout
-- Add products to the shopping cart.
-- Update quantities and calculate totals.
-- Automatic shipping and estimated tax calculation.
-- Cash on Delivery checkout.
-- Server-side price validation.
+- ➕ Add products and update cart quantities.
+- 🧮 Automatic subtotal and order-total calculation.
+- 🚚 Shipping cost calculation.
+- 🧾 Estimated tax calculation.
+- 💵 Cash on Delivery checkout.
+- ✅ Server-side product price validation.
 
-### 📦 Stock & Order Management
-- Inventory deduction when orders are placed.
-- Duplicate product-line aggregation.
-- Stock restoration for eligible cancellations.
-- Protection against cancellation of delivered orders.
-- Backend validation for order processing.
+### 📦 Inventory & Order Management
+- 📉 Stock deduction when orders are placed.
+- 🔄 Duplicate product-line aggregation.
+- 📈 Stock restoration for eligible cancellations.
+- 🛡️ Protection against cancelling delivered orders.
+- 🔍 Backend validation for order processing.
 
-## 💳 Payment System — Cash on Delivery
+## 💳 Payment System
 
-The application uses a built-in Cash on Delivery (COD) workflow.
+### 💵 Cash on Delivery (COD)
 
-- No external payment gateway account or API keys required.
-- Product prices and order totals are validated on the backend.
-- Inventory is reserved when an order is created.
+The application uses a built-in Cash on Delivery workflow without requiring an external payment gateway.
+
+- No third-party payment gateway keys are required.
+- Product prices and order totals are calculated on the server.
+- Inventory is reserved during order creation.
 - Eligible cancellations restore reserved stock.
 
-### Configured Pricing Rules
-- 🚚 Standard Shipping: $10
-- 🎁 Free Shipping: Orders over $50
-- 🧾 Estimated Tax: 5%
+**Configured pricing rules:**
 
-These are the application's configured example amounts and can be changed as needed.
+| Item | Rule |
+|---|---|
+| 🚚 Standard Shipping | $10 |
+| 🎁 Free Shipping | Orders over $50 |
+| 🧾 Estimated Tax | 5% |
 
-## 🧰 Technology Stack
+These are the application's configured example amounts.
+
+## 🧰 Tech Stack
 
 | Layer | Technologies |
 |---|---|
-| Frontend | React 18, Vite 6, React Router DOM 6 |
-| State Management | React Context API |
-| Styling | Vanilla CSS, Responsive Design |
-| Backend | Node.js, Express.js |
-| Database | MongoDB Atlas, Mongoose |
-| Authentication | JWT, bcryptjs |
-| Configuration | dotenv, CORS |
-| Testing | Node.js Native Test Runner |
-| Deployment | Vercel, Render |
+| 🎨 Frontend | React 18, Vite 6 |
+| 🧭 Routing | React Router DOM 6 |
+| 🧠 State Management | React Context API |
+| 💅 Styling | Vanilla CSS, responsive design |
+| ⚙️ Backend | Node.js, Express.js |
+| 🗄️ Database | MongoDB Atlas, Mongoose |
+| 🔐 Security | JWT, bcryptjs, input sanitization |
+| 🧪 Testing | Node.js Native Test Runner |
+| ☁️ Deployment | Vercel, Render |
 
 ## 📁 Project Structure
 
-Simple E-commerce Store/
-├── README.md
-├── package.json
-├── backend/
-│   ├── config/
-│   ├── controllers/
-│   ├── data/
-│   ├── middleware/
-│   ├── models/
-│   ├── routes/
-│   ├── scripts/
-│   ├── tests/
-│   ├── .env.example
-│   ├── server.js
-│   └── package.json
-└── frontend/
-    ├── public/
-    ├── src/
-    │   ├── api/
-    │   ├── components/
-    │   ├── context/
-    │   ├── pages/
-    │   ├── App.jsx
-    │   └── main.jsx
-    ├── .env.example
-    ├── index.html
-    └── package.json
+    Simple E-commerce Store/
+    ├── README.md
+    ├── package.json
+    ├── backend/
+    │   ├── config/
+    │   ├── controllers/
+    │   ├── data/
+    │   ├── middleware/
+    │   ├── models/
+    │   ├── routes/
+    │   ├── scripts/
+    │   ├── tests/
+    │   ├── .env.example
+    │   ├── server.js
+    │   └── package.json
+    └── frontend/
+        ├── public/
+        ├── src/
+        │   ├── api/
+        │   ├── components/
+        │   ├── context/
+        │   ├── pages/
+        │   ├── App.jsx
+        │   └── main.jsx
+        ├── .env.example
+        ├── index.html
+        └── package.json
 
 ## ⚙️ Prerequisites
 
-Before starting, install:
+Install the following before running the project:
 
 - [Node.js](https://nodejs.org/) v18 or higher.
 - npm v9 or higher.
 - MongoDB Atlas or a local MongoDB instance.
 - Git (optional).
 
-Verify installation:
+Check the installed versions:
 
     node -v
     npm -v
@@ -138,38 +152,38 @@ Create this file using `backend/.env.example` as a template.
     CLIENT_URL=http://localhost:5173
     PAYMENT_METHOD=Cash on Delivery
 
-Use your own MongoDB connection string and a strong JWT secret.
+Configure your own MongoDB connection string and a strong JWT secret.
 
 ### Frontend — `frontend/.env`
 
-For local development, the application can use the Vite proxy:
+For local development:
 
     VITE_API_BASE_URL=/api
 
-For the deployed Vercel frontend, configure:
+For the deployed frontend, set this environment variable in Vercel:
 
     VITE_API_BASE_URL=https://simple-ecommerce-store-hb6q.onrender.com/api
 
-Redeploy the frontend after changing its environment variables.
+Redeploy the frontend after updating environment variables.
 
-⚠️ Never expose database credentials or JWT secrets in frontend environment variables or public repositories.
+⚠️ Never commit real `.env` files, database credentials, or JWT secrets to GitHub.
 
-## 💻 Local Setup & Installation
+## 🚀 Installation & Setup
 
-### 1. Clone the Repository
+### 1️⃣ Clone the Repository
 
     git clone https://github.com/zaidimam15/simple-ecommerce-store.git
     cd simple-ecommerce-store
 
-### 2. Install Dependencies
+### 2️⃣ Install Dependencies
 
 Run from the project root:
 
     npm run install:all
 
-Alternatively, install dependencies inside the backend and frontend folders separately.
+Alternatively, install dependencies separately inside `backend/` and `frontend/`.
 
-### 3. Configure Environment Files
+### 3️⃣ Configure Environment Files
 
 On Windows PowerShell:
 
@@ -178,7 +192,7 @@ On Windows PowerShell:
 
 Update `backend/.env` with your database connection and JWT secret.
 
-### 4. Load the Product Catalogue
+### 4️⃣ Load the Product Catalogue
 
 Use the non-destructive catalogue loader:
 
@@ -188,17 +202,17 @@ Alternatively, from the backend directory:
 
     node scripts/addMoreProducts.js
 
-Back up important data before running any database seeding operation.
+Always review database scripts and back up important data before running them.
 
 ## ▶️ Run the Application
 
-Open two terminals from the project root.
+Open two terminal windows in the project root.
 
-**Terminal 1 — Backend**
+**Terminal 1 — Backend API**
 
     npm run backend
 
-Backend URL: http://localhost:5000
+Backend: http://localhost:5000
 
 Health Check: http://localhost:5000/api/health
 
@@ -206,13 +220,13 @@ Health Check: http://localhost:5000/api/health
 
     npm run frontend
 
-Frontend URL: http://localhost:5173
+Frontend: http://localhost:5173
 
-You can also start each application using its own development script from the corresponding directory.
+You can also use the development scripts inside the backend and frontend directories.
 
 ## 🧪 Automated Testing
 
-Run the tests from the project root:
+Run tests from the project root:
 
     npm test
 
@@ -223,17 +237,16 @@ Or from the backend directory:
 
 The documented test suite contains 64 tests covering:
 
-- Authentication and JWT validation.
-- Password hashing.
-- Product catalogue integrity.
-- COD order calculations.
-- Server-side price validation.
-- Stock deduction and restoration.
-- Order cancellation rules.
-- Search sanitization and pagination.
-- API route security.
+- 🔐 Authentication and JWT validation.
+- 🔑 Password hashing.
+- 🛍️ Product catalogue integrity.
+- 💳 COD pricing and order validation.
+- 📦 Stock deduction and restoration.
+- 🔄 Order cancellation rules.
+- 🔎 Search sanitization and pagination.
+- 🛡️ API route security.
 
-Run the tests locally to verify the current passing count before describing the suite as fully passing.
+Run the suite locally to confirm the current passing count before reporting the results as verified.
 
 ## 🏗️ Production Build
 
@@ -241,7 +254,7 @@ Build the frontend from the project root:
 
     npm run build:frontend
 
-Or from the frontend directory:
+Alternatively, from the frontend directory:
 
     npm run build
 
@@ -255,13 +268,13 @@ Production files are generated in `frontend/dist/`.
 |---|---|---|---|
 | POST | `/api/auth/register` | Register a user | Public |
 | POST | `/api/auth/login` | Login and receive JWT | Public |
-| GET | `/api/auth/me` | Get the current profile | JWT Required |
+| GET | `/api/auth/me` | Get current user profile | JWT Required |
 
 ### 🛍️ Products — `/api/products`
 
 | Method | Endpoint | Description | Access |
 |---|---|---|---|
-| GET | `/api/products` | Search, filter, sort, paginate | Public |
+| GET | `/api/products` | Search, filter, sort, and paginate products | Public |
 | GET | `/api/products/:id` | Get product details | Public |
 
 ### 📦 Orders — `/api/orders`
@@ -279,28 +292,30 @@ Production files are generated in `frontend/dist/`.
 - [ ] `.env.example` contains only placeholder values.
 - [ ] `node_modules/` and build artifacts are ignored.
 - [ ] Database credentials and JWT secrets are never committed.
-- [ ] CORS allows the intended frontend origin.
+- [ ] CORS is configured for the intended frontend origin.
 - [ ] Authentication and API validation are tested.
 - [ ] Important database data is backed up before seeding.
 
-## 🧑‍💻 Demo Credentials
+## 🧑‍💻 Demo Account
 
-The project documentation lists the following demo account:
+The project documentation lists these demo credentials:
 
 - **Email:** `demo@example.com`
 - **Password:** `password123`
 
-A demo login button is described on the Login page. The account must exist in the deployed database for login to work. Do not use these credentials for a personal account.
+A demo login button is described on the Login page. The account must exist in the deployed database for login to work. Never use these credentials for a personal account.
 
 ## 👨‍💻 Author
 
 **Zaid Imam**
 
-- GitHub: [@zaidimam15](https://github.com/zaidimam15)
-- Repository: [Simple E-Commerce Store](https://github.com/zaidimam15/simple-ecommerce-store)
+- 🐙 GitHub: [@zaidimam15](https://github.com/zaidimam15)
+- 💻 Repository: [Simple E-Commerce Store](https://github.com/zaidimam15/simple-ecommerce-store)
+- 🌐 Live Website: [Atelier Edition](https://simple-ecommerce-store-red.vercel.app/)
 
 ## 📄 License
 
 Licensed under the ISC License. See the repository's license file for details.
 
 Developed as part of the CodeAlpha Full Stack Development Internship.
+
