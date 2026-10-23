@@ -1,362 +1,306 @@
-# Atelier Edition — Modern Full-Stack E-Commerce Store
+## 🌐 Live Demo & Project Links
 
-[![Node.js](https://img.shields.io/badge/Node.js-18+-339933?style=flat&logo=nodedotjs&logoColor=white)](https://nodejs.org/)
-[![Express](https://img.shields.io/badge/Express-4.21-000000?style=flat&logo=express&logoColor=white)](https://expressjs.com/)
-[![React](https://img.shields.io/badge/React-18-61DAFB?style=flat&logo=react&logoColor=black)](https://react.dev/)
-[![Vite](https://img.shields.io/badge/Vite-6.4-646CFF?style=flat&logo=vite&logoColor=white)](https://vitejs.dev/)
-[![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-47A248?style=flat&logo=mongodb&logoColor=white)](https://www.mongodb.com/)
-[![Tests](https://img.shields.io/badge/Tests-64%20Passing-brightgreen?style=flat)](https://nodejs.org/api/test.html)
+| Resource | Link |
+|---|---|
+| 🌍 Live Frontend | [Visit Website](https://simple-ecommerce-store-red.vercel.app/) |
+| ⚙️ Backend API | [View Backend](https://simple-ecommerce-store-hb6q.onrender.com) |
+| 💚 API Health Check | [Check API](https://simple-ecommerce-store-hb6q.onrender.com/api/health) |
+| 💻 GitHub Repository | [Explore Source Code](https://github.com/zaidimam15/simple-ecommerce-store) |
 
-A comprehensive, production-ready Full-Stack MERN E-Commerce web application built with Node.js, Express, React, Vite, and MongoDB Atlas. Features an extensive curated catalogue of 122 products, rich responsive UI/UX, full-text search and category filtering, wishlist, quick view, cart persistence, secure JWT authentication, and a streamlined **Cash on Delivery (COD)** checkout workflow with atomic stock reservation and zero external third-party payment gateway dependencies.
+## ✨ About the Project
 
----
+Atelier Edition is a full-stack e-commerce web application built using the MERN stack. It combines a modern storefront with product discovery, shopping cart management, user authentication, wishlist functionality, and Cash on Delivery checkout.
 
-## Table of Contents
-- [Highlights & Features](#highlights--features)
-- [Payment Architecture (Cash on Delivery)](#payment-architecture-cash-on-delivery)
-- [Technology Stack](#technology-stack)
-- [Project Structure](#project-structure)
-- [Prerequisites](#prerequisites)
-- [Environment Configuration](#environment-configuration)
-- [Local Setup & Installation](#local-setup--installation)
-- [Running the Application](#running-the-application)
-- [Automated Testing Suite](#automated-testing-suite)
-- [Production Build](#production-build)
-- [API Reference](#api-reference)
-- [Security & Safe GitHub Upload Checklist](#security--safe-github-upload-checklist)
-- [Demo Credentials](#demo-credentials)
-- [License](#license)
+The application includes a curated catalogue of 122 products across 10 lifestyle categories, along with inventory management and automated tests.
 
----
+## 🚀 Key Features
 
-## Highlights & Features
+### 🛍️ Product Catalogue
+- 122 curated products across 10 lifestyle categories.
+- Product images, descriptions, prices, ratings, and stock information.
+- Instant search with input sanitization.
+- Category filtering and dynamic pagination.
+- Sorting by price, rating, and product name.
 
-### 🛍️ Curated 122-Product Catalogue
-- **10 Curated Lifestyle Categories**: Audio, Wearables, Accessories, Eyewear, Apparel, Travel, Kitchen, Home, Gaming, and Footwear.
-- **Rich Product Metadata**: Real high-definition photography, verified stock levels, ratings, review counts, detailed descriptions, and SKU tags.
-- **Interactive Browsing**: Instant search with regex sanitization, multi-category pill selectors, sorting (price low/high, rating, name A-Z), and dynamic pagination.
+### 🎨 Modern UI/UX
+- Premium editorial-inspired design.
+- Responsive layout for desktop, tablet, and mobile.
+- Quick View modal for product previews.
+- Slide-out wishlist drawer.
+- Persistent cart and wishlist using local storage.
+- Loading skeletons and toast notifications.
 
-### 🎨 Premium UI/UX & Responsive Design System
-- **Generous Wide Layout**: Designed around a modern `1500px` container with zero cramped side margins.
-- **Editorial Hero**: Deep navy, royal blue, and coral brand palette with real-time stock and product counters.
-- **Quick View Modal**: Instant product inspection without leaving the catalogue.
-- **Wishlist Drawer**: Slide-out drawer with persistent client-side wishlist tracking and direct add-to-bag capabilities.
-- **Shopping Cart**: Real-time quantity adjustments, free shipping calculation threshold (orders > $50), 5% estimated tax, and subtotal computation.
+### 🔐 Authentication
+- User registration and login.
+- JWT-based authentication.
+- Password hashing with bcrypt.
+- Protected checkout and order routes.
+- Authenticated order history.
 
-### 🔐 Authentication & Account Management
-- **JWT Authentication**: Secure stateless tokens with bearer header authorization.
-- **Password Protection**: Salted Bcrypt password hashing.
-- **1-Click Demo Login**: Pre-populated demo credentials for immediate testing.
-- **Order History**: Authenticated user dashboard displaying previous orders, payment statuses, and tracking reference IDs.
+### 🛒 Shopping & Checkout
+- Add products to the shopping cart.
+- Update quantities and calculate totals.
+- Automatic shipping and estimated tax calculation.
+- Cash on Delivery checkout.
+- Server-side price validation.
 
----
+### 📦 Stock & Order Management
+- Inventory deduction when orders are placed.
+- Duplicate product-line aggregation.
+- Stock restoration for eligible cancellations.
+- Protection against cancellation of delivered orders.
+- Backend validation for order processing.
 
-## Payment Architecture (Cash on Delivery)
+## 💳 Payment System — Cash on Delivery
 
-The store implements a streamlined, dependable **Cash on Delivery (COD)** payment flow:
+The application uses a built-in Cash on Delivery (COD) workflow.
 
-- **Zero External API Dependencies**: Does not require third-party payment gateway accounts, keys, or external webhooks.
-- **Atomic Stock Reservation**: Orders atomically decrement inventory stock using MongoDB transactions and atomic operations (`$inc: { stock: -quantity }`).
-- **Duplicate Prevention**: If duplicate product lines are submitted in an order, quantities are aggregated before database deduction to eliminate race conditions.
-- **Server-Side Price Validation**: Product prices, subtotal, shipping fees ($10 standard or FREE over $50), and estimated 5% tax are computed strictly on the backend to prevent client-side price tampering.
-- **Stock Restoration on Cancellation**: Authenticated customers can cancel processing orders from their Order History; reserved inventory is automatically and idempotently returned to stock.
-- **Delivered Order Protection**: Orders that have already been fulfilled or delivered cannot be cancelled or modified.
+- No external payment gateway account or API keys required.
+- Product prices and order totals are validated on the backend.
+- Inventory is reserved when an order is created.
+- Eligible cancellations restore reserved stock.
 
----
+### Configured Pricing Rules
+- 🚚 Standard Shipping: $10
+- 🎁 Free Shipping: Orders over $50
+- 🧾 Estimated Tax: 5%
 
-## Technology Stack
+These are the application's configured example amounts and can be changed as needed.
+
+## 🧰 Technology Stack
 
 | Layer | Technologies |
-| :--- | :--- |
-| **Frontend** | React 18, Vite 6, React Router DOM 6, Context API (Auth, Cart, Wishlist, Toast) |
-| **Styling** | Vanilla CSS Design System (Custom design tokens, glassmorphism, responsive breakpoints) |
-| **Backend** | Node.js (v18+), Express 4.21, Mongoose 8.9, CORS, Dotenv |
-| **Database** | MongoDB Atlas (Cloud) / Local MongoDB |
-| **Security** | Bcryptjs 3.0, JSON Web Tokens 9.0, Input Sanitization (ReDoS/XSS defense) |
-| **Payments** | Cash on Delivery (Built-in, zero external dependencies) |
-| **Testing** | Node.js Native Test Runner (`node --test`) with 64 passing unit and integration tests |
+|---|---|
+| Frontend | React 18, Vite 6, React Router DOM 6 |
+| State Management | React Context API |
+| Styling | Vanilla CSS, Responsive Design |
+| Backend | Node.js, Express.js |
+| Database | MongoDB Atlas, Mongoose |
+| Authentication | JWT, bcryptjs |
+| Configuration | dotenv, CORS |
+| Testing | Node.js Native Test Runner |
+| Deployment | Vercel, Render |
 
----
+## 📁 Project Structure
 
-## Project Structure
-
-```
 Simple E-commerce Store/
-├── .gitignore                      # Master repository ignore rules
-├── package.json                    # Root workspace runner scripts
-├── README.md                       # Complete documentation & setup guide
+├── README.md
+├── package.json
 ├── backend/
-│   ├── .env.example                # Backend environment variable template
-│   ├── .gitignore                  # Backend-specific ignore rules
 │   ├── config/
-│   │   └── db.js                   # MongoDB Mongoose connection handler
 │   ├── controllers/
-│   │   ├── authController.js       # Register, login, and user profile
-│   │   ├── orderController.js      # Order creation, order history, cancellation & stock sync
-│   │   └── productController.js    # Catalogue query, search, filtering, pagination
 │   ├── data/
-│   │   └── catalogueData.js        # 122 curated benchmark products across 10 categories
 │   ├── middleware/
-│   │   ├── authMiddleware.js       # JWT bearer token verification
-│   │   └── errorMiddleware.js      # Global error & 404 handlers
 │   ├── models/
-│   │   ├── Order.js                # Order schema with items, status, address, payment method
-│   │   ├── Product.js              # Product schema with price, stock, rating
-│   │   └── User.js                 # User schema with bcrypt password hashing
 │   ├── routes/
-│   │   ├── authRoutes.js           # /api/auth endpoints
-│   │   ├── orderRoutes.js          # /api/orders endpoints
-│   │   └── productRoutes.js        # /api/products endpoints
 │   ├── scripts/
-│   │   ├── addMoreProducts.js      # Non-destructive inventory catalogue loader
-│   │   └── seed.js                 # Initial seed script
 │   ├── tests/
-│   │   ├── api.test.js             # Basic API endpoint assertions
-│   │   ├── catalogue.test.js       # Schema, category count, and data tests
-│   │   ├── codOrderWorkflow.test.js # COD order workflow, pricing, stock & cancellation tests
-│   │   ├── ecommerceWorkflow.test.js # Live catalogue & filtering workflow tests
-│   │   ├── fullStackIntegration.test.js # Full-stack integration, COD security & preservation suite
-│   │   ├── paginationAndSafety.test.js # Sanitization, bounds, and safety tests
-│   │   └── routes.test.js          # Express route security & token tests
-│   ├── server.js                   # Express application entry point
-│   └── package.json                # Backend dependencies and test scripts
+│   ├── .env.example
+│   ├── server.js
+│   └── package.json
 └── frontend/
-    ├── .env.example                # Frontend environment variable template
-    ├── .gitignore                  # Frontend-specific ignore rules
-    ├── index.html                  # HTML entry point with modern typography
-    ├── vite.config.js              # Vite configuration with /api backend proxy
-    ├── package.json                # Frontend dependencies and build scripts
     ├── public/
-    │   └── favicon.svg             # Store brand icon
-    └── src/
-        ├── api/
-        │   └── client.js           # Centralized Fetch API client with JWT headers
-        ├── components/
-        │   ├── Footer.jsx          # Brand footer with links and trust markers
-        │   ├── Icons.jsx           # Lightweight SVG icon collection
-        │   ├── LoadingSpinner.jsx  # Loading state indicators
-        │   ├── Navbar.jsx          # Header with search, wishlist/cart badges, auth
-        │   ├── ProductCard.jsx     # Card with quick-view, rating, wishlist toggle
-        │   ├── ProductSkeleton.jsx # Shimmer placeholder skeleton cards
-        │   ├── ProtectedRoute.jsx  # Route guard for authenticated checkout/orders
-        │   ├── QuickViewModal.jsx  # Fast product preview modal
-        │   └── WishlistDrawer.jsx  # Slide-out saved items drawer
-        ├── context/
-        │   ├── AuthContext.jsx     # User authentication state
-        │   ├── CartContext.jsx     # Cart state with localStorage persistence
-        │   ├── ToastContext.jsx    # Toast notification system
-        │   └── WishlistContext.jsx # Wishlist state with localStorage persistence
-        ├── pages/
-        │   ├── CartPage.jsx        # Shopping bag view and price summary
-        │   ├── CheckoutPage.jsx    # Dedicated Cash on Delivery checkout
-        │   ├── HomePage.jsx        # Editorial storefront with catalogue grid
-        │   ├── LoginPage.jsx       # User login with 1-click demo button
-        │   ├── MyOrdersPage.jsx    # Purchase history, status badges, and order cancellation
-        │   ├── NotFoundPage.jsx    # 404 fallback page
-        │   ├── OrderSuccessPage.jsx # Order confirmation view with delivery estimate
-        │   ├── ProductDetailPage.jsx # Full product specs and add-to-bag
-        │   └── RegisterPage.jsx    # Account registration
-        ├── index.css               # Complete responsive CSS design tokens
-        ├── main.jsx                # React DOM entry point
-        └── App.jsx                 # Route definitions and provider wrappers
-```
+    ├── src/
+    │   ├── api/
+    │   ├── components/
+    │   ├── context/
+    │   ├── pages/
+    │   ├── App.jsx
+    │   └── main.jsx
+    ├── .env.example
+    ├── index.html
+    └── package.json
 
----
+## ⚙️ Prerequisites
 
-## Prerequisites
+Before starting, install:
 
-Before running the application locally, ensure you have:
-- **Node.js**: v18.0.0 or higher (`node -v`)
-- **npm**: v9.0.0 or higher (`npm -v`)
-- **MongoDB**: A running local MongoDB instance (`mongodb://127.0.0.1:27017/simple_ecommerce`) or a free [MongoDB Atlas](https://www.mongodb.com/atlas) cloud cluster.
+- [Node.js](https://nodejs.org/) v18 or higher.
+- npm v9 or higher.
+- MongoDB Atlas or a local MongoDB instance.
+- Git (optional).
 
----
+Verify installation:
 
-## Environment Configuration
+    node -v
+    npm -v
 
-### Backend Environment: `backend/.env`
-Create a `.env` file inside the `backend/` directory using `backend/.env.example` as a reference:
+## 🔧 Environment Configuration
 
-```env
-# Server Port & Mode
-PORT=5000
-NODE_ENV=development
+### Backend — `backend/.env`
 
-# MongoDB Connection String (Replace with your Atlas URI or local instance)
-MONGODB_URI=mongodb://127.0.0.1:27017/simple_ecommerce
+Create this file using `backend/.env.example` as a template.
 
-# JSON Web Token Secret Key (Provide a secure random string)
-JWT_SECRET=your_jwt_secret_key_here_change_in_production
+    PORT=5000
+    NODE_ENV=development
+    MONGODB_URI=mongodb://127.0.0.1:27017/simple_ecommerce
+    JWT_SECRET=replace_with_a_secure_random_secret
+    CLIENT_URL=http://localhost:5173
+    PAYMENT_METHOD=Cash on Delivery
 
-# Client / Frontend URL for CORS
-CLIENT_URL=http://localhost:5173
+Use your own MongoDB connection string and a strong JWT secret.
 
-# Payment Configuration
-# Built-in Cash on Delivery (COD) requires zero third-party credentials.
-PAYMENT_METHOD=Cash on Delivery
-```
+### Frontend — `frontend/.env`
 
-### Frontend Environment: `frontend/.env` (Optional)
-Create an optional `.env` file inside `frontend/` if overriding default endpoints:
+For local development, the application can use the Vite proxy:
 
-```env
-# Frontend API Base URL (defaults to /api with Vite dev proxy to http://localhost:5000)
-VITE_API_BASE_URL=/api
-```
+    VITE_API_BASE_URL=/api
 
----
+For the deployed Vercel frontend, configure:
 
-## Local Setup & Installation
+    VITE_API_BASE_URL=https://simple-ecommerce-store-hb6q.onrender.com/api
 
-Open your terminal in the project root directory:
+Redeploy the frontend after changing its environment variables.
 
-### 1. Install All Dependencies
-```bash
-# Install root, backend, and frontend packages
-npm run install:all
-```
-*(Or run `npm install` inside `backend/` and `npm install` inside `frontend/`)*
+⚠️ Never expose database credentials or JWT secrets in frontend environment variables or public repositories.
 
-### 2. Configure Environment Files
-Copy the example templates:
-```bash
-# On Windows PowerShell
-cp backend/.env.example backend/.env
-cp frontend/.env.example frontend/.env
+## 💻 Local Setup & Installation
 
-# On macOS / Linux
-cp backend/.env.example backend/.env
-cp frontend/.env.example frontend/.env
-```
-Edit `backend/.env` to add your MongoDB connection string.
+### 1. Clone the Repository
 
-### 3. Load Product Catalogue into MongoDB
-Populate the database with the full 122 curated products non-destructively:
-```bash
-npm run seed:safe
-# Or from backend/: node scripts/addMoreProducts.js
-```
+    git clone https://github.com/zaidimam15/simple-ecommerce-store.git
+    cd simple-ecommerce-store
 
----
+### 2. Install Dependencies
 
-## Running the Application
+Run from the project root:
 
-### Option A: Run from Project Root (Recommended)
-Run in two separate terminal windows:
+    npm run install:all
 
-**Terminal 1 — Backend API:**
-```bash
-npm run backend
-```
-- Starts on **http://localhost:5000**
-- Health check: **http://localhost:5000/api/health**
+Alternatively, install dependencies inside the backend and frontend folders separately.
 
-**Terminal 2 — Frontend Application:**
-```bash
-npm run frontend
-```
-- Starts on **http://localhost:5173**
+### 3. Configure Environment Files
 
----
+On Windows PowerShell:
 
-### Option B: Run Inside Subdirectories Directly
+    Copy-Item backend/.env.example backend/.env
+    Copy-Item frontend/.env.example frontend/.env
 
-**Backend:**
-```bash
-cd backend
-npm run dev
-```
+Update `backend/.env` with your database connection and JWT secret.
 
-**Frontend:**
-```bash
-cd frontend
-npm run dev
-```
+### 4. Load the Product Catalogue
 
----
+Use the non-destructive catalogue loader:
 
-## Automated Testing Suite
+    npm run seed:safe
 
-The project includes an automated test suite with **64 tests across 15 test suites** verifying security, data validation, calculations, COD workflows, and catalogue integrity:
+Alternatively, from the backend directory:
 
-```bash
-# Run from root
-npm test
+    node scripts/addMoreProducts.js
 
-# Or run from backend/
-cd backend
-npm test
-```
+Back up important data before running any database seeding operation.
 
-### Test Coverage Highlights:
-- **Authentication**: Bcrypt salting, password hashing, JWT signing and malformed token rejection.
-- **Cash on Delivery Workflow**: Server-side price calculation, 5% estimated tax, free shipping threshold over $50, duplicate line item aggregation.
-- **Stock Reservation & Restoration**: Atomic inventory deduction on order creation, idempotent stock return on cancellation, delivered order cancellation prevention.
-- **Catalogue Preservation**: Validates that all 122 products and 10 categories are preserved in MongoDB with intact stock levels.
-- **Input Sanitization**: XSS and ReDoS injection defense on search queries.
+## ▶️ Run the Application
 
----
+Open two terminals from the project root.
 
-## Production Build
+**Terminal 1 — Backend**
 
-To build the client for production deployment:
+    npm run backend
 
-```bash
-# Run from root
-npm run build:frontend
+Backend URL: http://localhost:5000
 
-# Or from frontend/
-cd frontend
-npm run build
-```
-Production assets are generated in `frontend/dist/`.
+Health Check: http://localhost:5000/api/health
 
----
+**Terminal 2 — Frontend**
 
-## API Reference
+    npm run frontend
 
-### Authentication (`/api/auth`)
+Frontend URL: http://localhost:5173
+
+You can also start each application using its own development script from the corresponding directory.
+
+## 🧪 Automated Testing
+
+Run the tests from the project root:
+
+    npm test
+
+Or from the backend directory:
+
+    cd backend
+    npm test
+
+The documented test suite contains 64 tests covering:
+
+- Authentication and JWT validation.
+- Password hashing.
+- Product catalogue integrity.
+- COD order calculations.
+- Server-side price validation.
+- Stock deduction and restoration.
+- Order cancellation rules.
+- Search sanitization and pagination.
+- API route security.
+
+Run the tests locally to verify the current passing count before describing the suite as fully passing.
+
+## 🏗️ Production Build
+
+Build the frontend from the project root:
+
+    npm run build:frontend
+
+Or from the frontend directory:
+
+    npm run build
+
+Production files are generated in `frontend/dist/`.
+
+## 📡 API Reference
+
+### 🔐 Authentication — `/api/auth`
+
 | Method | Endpoint | Description | Access |
 |---|---|---|---|
-| `POST` | `/api/auth/register` | Register new account (`name`, `email`, `password`) | Public |
-| `POST` | `/api/auth/login` | Authenticate user & receive JWT token | Public |
-| `GET` | `/api/auth/me` | Fetch authenticated user profile | Private (Bearer JWT) |
+| POST | `/api/auth/register` | Register a user | Public |
+| POST | `/api/auth/login` | Login and receive JWT | Public |
+| GET | `/api/auth/me` | Get the current profile | JWT Required |
 
-### Products (`/api/products`)
+### 🛍️ Products — `/api/products`
+
 | Method | Endpoint | Description | Access |
 |---|---|---|---|
-| `GET` | `/api/products` | Query catalogue (`search`, `category`, `sort`, `page`, `limit`) | Public |
-| `GET` | `/api/products/:id` | Fetch single product by MongoDB ObjectId | Public |
+| GET | `/api/products` | Search, filter, sort, paginate | Public |
+| GET | `/api/products/:id` | Get product details | Public |
 
-### Orders (`/api/orders`)
+### 📦 Orders — `/api/orders`
+
 | Method | Endpoint | Description | Access |
 |---|---|---|---|
-| `POST` | `/api/orders` | Create order with Cash on Delivery & atomic stock reservation | Private (Bearer JWT) |
-| `GET` | `/api/orders/my-orders` | Retrieve authenticated user's order history | Private (Bearer JWT) |
-| `GET` | `/api/orders/:id` | Retrieve single order details (owner only) | Private (Bearer JWT) |
-| `PATCH` | `/api/orders/:id/cancel` | Cancel processing order and restore reserved stock | Private (Bearer JWT) |
+| POST | `/api/orders` | Create a COD order | JWT Required |
+| GET | `/api/orders/my-orders` | Get order history | JWT Required |
+| GET | `/api/orders/:id` | Get order details | JWT Required |
+| PATCH | `/api/orders/:id/cancel` | Cancel an eligible order | JWT Required |
 
----
+## 🔒 Security Checklist
 
-## Security & Safe GitHub Upload Checklist
+- [ ] `.env` files are excluded from Git.
+- [ ] `.env.example` contains only placeholder values.
+- [ ] `node_modules/` and build artifacts are ignored.
+- [ ] Database credentials and JWT secrets are never committed.
+- [ ] CORS allows the intended frontend origin.
+- [ ] Authentication and API validation are tested.
+- [ ] Important database data is backed up before seeding.
 
-Before pushing this repository to GitHub or any public remote:
+## 🧑‍💻 Demo Credentials
 
-- [x] **No Secrets Tracked**: `.env` files (`backend/.env`, `frontend/.env`) are excluded in `.gitignore`.
-- [x] **Template Provided**: `.env.example` files provide only dummy placeholder values.
-- [x] **Build Artifacts Excluded**: `node_modules/`, `dist/`, `build/`, and `coverage/` are strictly ignored.
-- [x] **Log & OS Files Excluded**: `*.log`, `.DS_Store`, `Thumbs.db`, and editor state files are excluded.
-- [x] **Zero Third-Party Gateway Secrets**: COD payment architecture requires no external gateway API keys or private secrets.
+The project documentation lists the following demo account:
 
----
+- **Email:** `demo@example.com`
+- **Password:** `password123`
 
-## Demo Credentials
-For testing local authentication and checkout:
-- **Email**: `demo@example.com`
-- **Password**: `password123`
-*(A convenient **"Demo Account"** 1-click auto-fill button is available on the Login page).*
+A demo login button is described on the Login page. The account must exist in the deployed database for login to work. Do not use these credentials for a personal account.
 
----
+## 👨‍💻 Author
 
-## License
-This project is licensed under the **ISC License**. Developed as part of the CodeAlpha Full Stack Development Internship.
+**Zaid Imam**
+
+- GitHub: [@zaidimam15](https://github.com/zaidimam15)
+- Repository: [Simple E-Commerce Store](https://github.com/zaidimam15/simple-ecommerce-store)
+
+## 📄 License
+
+Licensed under the ISC License. See the repository's license file for details.
+
+Developed as part of the CodeAlpha Full Stack Development Internship.
