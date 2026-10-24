@@ -15,6 +15,7 @@ const app = express();
 // CORS Configuration
 const allowedOrigins = [
   process.env.CLIENT_URL || 'http://localhost:5173',
+  'https://simple-ecommerce-store-red.vercel.app',
   'http://localhost:3000',
   'http://127.0.0.1:5173',
   'http://127.0.0.1:3000',
@@ -24,10 +25,19 @@ app.use(
   cors({
     origin: function (origin, callback) {
       // Allow requests with no origin (like mobile apps, curl, postman) or matching allowed list
-      if (!origin || allowedOrigins.includes(origin) || origin.startsWith('http://localhost:')) {
+      if (!origin || allowedOrigins.includes(origin)) {
         return callback(null, true);
       }
-      return callback(null, true); // Permissive for local development to avoid CORS road blocks
+
+      // Allow localhost dev origins in non-production environments
+      if (
+        process.env.NODE_ENV !== 'production' &&
+        (origin.startsWith('http://localhost:') || origin.startsWith('http://127.0.0.1:'))
+      ) {
+        return callback(null, true);
+      }
+
+      return callback(new Error(`Origin ${origin} is not allowed by CORS policy.`));
     },
     credentials: true,
   })
